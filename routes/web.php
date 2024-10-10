@@ -11,3 +11,7 @@ Route::get('/template', function () {
     return view('template.master');
 });
 
+Route::get('/landing', function () {
+    return view('landing.page');
+});
+
