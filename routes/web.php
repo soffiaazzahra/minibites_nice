@@ -4,18 +4,34 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LandingPageController;
 use App\Models\Product;
+use App\Http\Controllers\{
+    AuthController,
+    RegisterPageController,
+    DashboardController,
+};
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/template', function () {
-    return view('template.master');
-});
-
 Route::get('/landing', function () {
     return view('landing.page');
 });
+
+Route::middleware(['guest'])->group(function () {
+    Route::controller(AuthController::class)->group(function () {
+        Route::get('/login', 'login')->name('auth.login');
+        Route::post('/authenticate', 'authenticate')->name('auth.authenticate');
+    });
+
+    Route::controller(RegisterPageController::class)->group(function () {
+        Route::get('/register', 'create')->name('register.create');
+        Route::post('/register', 'store')->name('register.store');
+    });
+});
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout')->middleware(['auth']);
+
 
 // // Route untuk menampilkan halaman tambah produk
 // Route::get('/menu/create', [MenuController::class, 'create'])->name('menu.create');
@@ -26,6 +42,7 @@ Route::get('/landing', function () {
 // Rute untuk dashboard admin
 // Route untuk dashboard admin
 Route::prefix('admin')->group(function () {
+    Route::get('/', [DashboardController::class, 'admin'])->name('admin.page');
     Route::get('/products', [ProductController::class, 'index'])->name('admin.product.index');
     Route::get('/products/create', [ProductController::class, 'create'])->name('admin.product.create');
     Route::post('/products', [ProductController::class, 'store'])->name('admin.product.store');
@@ -34,5 +51,10 @@ Route::prefix('admin')->group(function () {
     Route::put('/products/{product}', [ProductController::class, 'update'])->name('admin.product.update');
     // Tambahkan rute untuk edit dan destroy jika diperlukan
 });
+
+Route::prefix('member')->group(function () {
+    Route::get('/', [DashboardController::class, 'user'])->name('member.page');
+});
+
 // Route untuk halaman landing
 Route::get('/landing', [LandingPageController::class, 'index'])->name('landing.page');

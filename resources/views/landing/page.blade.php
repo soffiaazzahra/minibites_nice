@@ -6,25 +6,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MINIBITES</title>
         <!-- font awesome cnd link -->
-         <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')}}">
+        <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')}}">
        <!-- custom css file -->
-          <link rel="stylesheet" href="{{asset('nice/css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('nice/css/style.css')}}">
     </head>
     <body>
 
 
-        
+
     <!-- header section starts -->
 
     @include('landing.home.navbar')
-     <!-- header section ends -->
+    <!-- header section ends -->
 
-
-
-     <!-- home section starts -->
+    <!-- home section starts -->
     @include('landing.home.main')
 
-            <!--  footer section starts -->
-              @include('landing.home.footer')
+    <!--  footer section starts -->
+    @include('landing.home.footer')
+
     </body>
  </html>

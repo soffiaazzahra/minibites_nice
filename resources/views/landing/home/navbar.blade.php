@@ -95,9 +95,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route('admin.product.index') }}" class="btn-dashboard ms-lg-3">Dashboard</a>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -105,14 +102,18 @@
         <!-- Icons -->
         <div class="icons d-flex align-items-center">
             <a href="#" class="me-3">
-                <i class="fas fa-heart" style="font-size: 1.5rem;"></i>
+                <i class="fas fa-heart" style="font-size: 2rem;"></i>
             </a>
             <a href="#" class="me-3">
-                <i class="fas fa-shopping-cart" style="font-size: 1.5rem;"></i>
+                <i class="fas fa-shopping-cart" style="font-size: 2rem;"></i>
             </a>
-            <a href="#">
-                <i class="fas fa-user" style="font-size: 1.5rem;"></i>
+            <a href="{{ route('auth.login') }}">
+                <i class="btn btn-primary" style="font-size: 2rem;">Login</i>
             </a>
+            <form action="{{ route('auth.logout') }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-primary" style="font-size: 2rem;">Logout</button>
+            </form>
         </div>
     </div>
 </header>
