@@ -3,7 +3,6 @@
         <h3>Welcome</h3>
         <span>MINIBITES</span>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic animi adipisci rem. Facilis, dolores iure est tempora fugit voluptatum molestias vitae perspiciatis, obcaecati pariatur molestiae ipsam quos veniam non eaque?</p>
-        <a href="#" class="btn">Shop Now</a>
     </div>
     <div class="image">
         <img src="{{asset('nice/images/strawberry_cream_cheese-removebg-preview.png')}}" alt="Strawberry Cream Cheese">
@@ -33,50 +32,29 @@
    <!-- about section ends -->
 
    <!-- menu section starts -->
-    <section class="menu" id="menu">
-        <h1 class="heading">Latest <span>products</span></h1>
-        <div class="box-container">
+   <section class="menu" id="menu">
+    <h1 class="heading">Latest <span>products</span></h1>
+    <div class="box-container">
+        @foreach($products as $product)
         <div class="box">
             <div class="image">
-                <img src="{{asset('nice/images/Kue Sus Isi Vla (Choux Pastry Cream Puffs).jpeg')}}" alt="">
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->nama }}" width="300" height="auto">
+
                 <div class="icons">
                     <a href="#" class="fas fa-heart"></a>
                     <a href="#" class="cart-btn">add to cart</a>
                 </div>
             </div>
             <div class="content">
-                <h3>Strawberry cream</h3>
-                <div class="price"> $12.99 </div>
+                <h3>{{ $product->nama }}</h3>
+                <h6>{{ $product->deskripsi }}</h6>
+                <div class="price">Rp {{ number_format($product->harga, 3, '.', '.') }}</div>
             </div>
         </div>
-        <div class="box">
-            <div class="image">
-                <img src="{{asset('nice/images/Maple Chai Sticky Buns.jpeg')}}" alt="">
-                <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="cart-btn">add to cart</a>
-                </div>
-            </div>
-            <div class="content">
-                <h3>Cinnamon Roll</h3>
-                <div class="price"> $12.99 </div>
-            </div>
-        </div>
-        <div class="box">
-            <div class="image">
-                <img src="{{asset('nice/images/🥐 Golden Morning Treat_ Fresh, Crispy Croissants to Enjoy.jpeg')}}" alt="">
-                <div class="icons">
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="cart-btn">add to cart</a>
-                </div>
-            </div>
-            <div class="content">
-                <h3>Danish Soes</h3>
-                <div class="price"> $12.99 </div>
-            </div>
-        </div>
-        </div>
-    </section>
+        @endforeach
+    </div>
+</section>
+
     <!-- menu section ends -->
 
         <section class="contact" id="contact">
