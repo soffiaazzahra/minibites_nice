@@ -125,10 +125,13 @@
                     <span id="cart-count">
                         {{ session('cart') ? count(session('cart')) : 0 }}
                     </span>
+                <a href="{{ route('auth.login') }}">
+                    <i class="btn btn-primary" style="font-size: 2rem;">Login</i>
                 </a>
-                <a href="#">
-                    <i class="fas fa-user" style="font-size: 1.5rem;"></i>
-                </a>
+                <form action="{{ route('auth.logout') }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-primary" style="font-size: 2rem;">Logout</button>
+                </form>
             </div>
         </div>
     </header>
