@@ -16,16 +16,16 @@
 
     <!-- header section starts -->
 
-    @include('member.home.navbar')
+    @include('user.home.navbar')
      <!-- header section ends -->
 
 
 
      <!-- home section starts -->
-    @include('member.home.main')
+    @include('user.home.main')
 
     <!--  footer section starts -->
-    @include('member.home.footer')
+    @include('user.home.footer')
 
     </body>
  </html>

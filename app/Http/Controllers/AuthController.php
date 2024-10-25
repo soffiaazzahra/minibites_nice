@@ -26,7 +26,7 @@ class AuthController extends Controller
                 return view('admin.page', compact('products'));
             } else {
                 $products = Product::all();
-                return view('member.page', compact('products'));
+                return view('user.page', compact('products'));
             }
         }
 
