@@ -104,12 +104,12 @@
 
         <!-- Icons -->
         <div class="icons d-flex align-items-center">
-            <a href="#" class="me-3">
+            {{-- <a href="#" class="me-3">
                 <i class="fas fa-heart" style="font-size: 2rem;"></i>
             </a>
             <a href="#" class="me-3">
                 <i class="fas fa-shopping-cart" style="font-size: 2rem;"></i>
-            </a>
+            </a> --}}
             <form action="{{ route('auth.logout') }}" method="post">
                 @csrf
                 <button type="submit" class="btn btn-primary" style="font-size: 2rem;">Logout</button>
