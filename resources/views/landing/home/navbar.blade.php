@@ -67,55 +67,72 @@
         .icons a:hover {
             color: var(--red); /* Warna saat hover */
         }
+
+        /* Custom styling untuk badge jumlah produk */
+        #cart-count {
+            font-size: 1rem; /* Ukuran font badge lebih besar dan bold */
+            position: absolute; /* Supaya badge muncul di atas ikon */
+            top: -5px; /* Menempatkan badge lebih dekat ke atas ikon */
+            right: -5px; /* Menempatkan badge lebih dekat ke kanan ikon */
+            color: var(--red); /* Mengatur warna teks badge */
+            background: none; /* Menghapus background */
+            padding: 0; /* Menghapus padding */
+            font-weight: bold; /* Menjadikan teks lebih tebal */
+        }
     </style>
 </head>
 <body>
 
-<header class="fixed-top">
-    <div class="container d-flex justify-content-between align-items-center py-3">
-        <!-- Logo -->
-        <a href="#" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
-
-        <!-- Navbar Links -->
-        <nav class="navbar navbar-expand-lg">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#menu">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('admin.product.index') }}" class="btn-dashboard ms-lg-3">Dashboard</a>
-                    </li>
-                </ul>
+    <header class="fixed-top">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <!-- Logo -->
+            <a href="#" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
+    
+            <!-- Navbar Links -->
+            <nav class="navbar navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ route('landing.page') }}">Home</a> <!-- Perbarui link Home -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#menu">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.product.index') }}" class="btn-dashboard ms-lg-3">Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <!-- Icons -->
+            <div class="icons d-flex align-items-center">
+                <a href="#" class="me-3">
+                    <i class="fas fa-heart" style="font-size: 1.5rem;"></i>
+                </a>
+                <!-- Icon Shopping Cart dengan badge jumlah produk -->
+                <a href="{{ route('cart.view') }}" class="me-3 position-relative">
+                    <i class="fas fa-shopping-cart" style="font-size: 1.5rem;"></i> <!-- Ukuran ikon diubah -->
+                    <span id="cart-count">
+                        {{ session('cart') ? count(session('cart')) : 0 }}
+                    </span>
+                </a>
+                <a href="#">
+                    <i class="fas fa-user" style="font-size: 1.5rem;"></i>
+                </a>
             </div>
-        </nav>
-
-        <!-- Icons -->
-        <div class="icons d-flex align-items-center">
-            <a href="#" class="me-3">
-                <i class="fas fa-heart" style="font-size: 1.5rem;"></i>
-            </a>
-            <a href="#" class="me-3">
-                <i class="fas fa-shopping-cart" style="font-size: 1.5rem;"></i>
-            </a>
-            <a href="#">
-                <i class="fas fa-user" style="font-size: 1.5rem;"></i>
-            </a>
         </div>
-    </div>
-</header>
+    </header>
+    
 
 <!-- Sertakan JS Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

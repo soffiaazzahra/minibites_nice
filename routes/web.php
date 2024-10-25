@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\CartController;
 use App\Models\Product;
 
 Route::get('/', function () {
@@ -36,3 +37,11 @@ Route::prefix('admin')->group(function () {
 });
 // Route untuk halaman landing
 Route::get('/landing', [LandingPageController::class, 'index'])->name('landing.page');
+// Route untuk Cart
+Route::post('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
+// Route untuk menghapus produk dari keranjang
+Route::get('/cart/remove/{id}', [CartController::class, 'destroy'])->name('cart.remove');
+// Route untuk navbar home pada halaman cart
+Route::get('/landing', [LandingPageController::class, 'index'])->name('landing.page');
+
