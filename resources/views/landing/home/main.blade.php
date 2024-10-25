@@ -43,14 +43,14 @@
                 <div class="icons">
                     <!-- Tombol Love -->
                     <a href="#" class="btn-icon fas fa-heart"></a>
-                
+
                     <!-- Tombol Add to Cart -->
                     <form action="{{ route('cart.add', $product->id) }}" method="POST" id="add-to-cart-{{ $product->id }}">
                         @csrf
-                        <!-- Ikon Add to Cart, klik ini akan memicu form submit -->
-                        <a href="#" class="btn-icon fas fa-shopping-cart" onclick="event.preventDefault(); document.getElementById('add-to-cart-{{ $product->id }}').submit();"></a>
                     </form>
-                </div>                
+                    <!-- Ikon Add to Cart, klik ini akan memicu form submit -->
+                    <a href="#" class="btn-icon fas fa-shopping-cart" onclick="event.preventDefault(); document.getElementById('add-to-cart-{{ $product->id }}').submit();"></a>
+                </div>
             </div>
 
             <div class="content">
