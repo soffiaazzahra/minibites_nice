@@ -97,6 +97,15 @@ header .fa-bars{
     border: .1rem solid rgba(0, 0, 0, .3);
     display: none;
 }
+/* Custom styling untuk badge jumlah produk */
+#cart-count {
+    font-size: 0.8rem; /* Ukuran font badge lebih kecil */
+    position: absolute; /* Supaya badge muncul di atas ikon */
+    top: -10%; /* Menempatkan badge sedikit di atas ikon */
+    right: -15%; /* Menempatkan badge lebih dekat ke kanan ikon */
+    transform: translate(50%, -50%); /* Pindahkan badge sedikit untuk penyesuaian */
+}
+
 
 
 .home {
@@ -274,6 +283,7 @@ header .fa-bars{
     font-weight: lighter;
     text-decoration: line-through;
 }
+
 .contact .row{
     display: flex;
     flex-wrap: wrap-reverse;
@@ -404,4 +414,6 @@ header .fa-bars{
     .heading{
         font-size: 3rem;
     }
+
+
 }
