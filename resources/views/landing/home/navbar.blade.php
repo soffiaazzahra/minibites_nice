@@ -87,7 +87,7 @@
         <div class="container d-flex justify-content-between align-items-center py-3">
             <!-- Logo -->
             <a href="#" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
-    
+
             <!-- Navbar Links -->
             <nav class="navbar navbar-expand-lg">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -107,13 +107,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.product.index') }}" class="btn-dashboard ms-lg-3">Dashboard</a>
-                        </li>
                     </ul>
                 </div>
             </nav>
-    
+
             <!-- Icons -->
             <div class="icons d-flex align-items-center">
                 <a href="#" class="me-3">
@@ -135,7 +132,7 @@
             </div>
         </div>
     </header>
-    
+
 
 <!-- Sertakan JS Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
