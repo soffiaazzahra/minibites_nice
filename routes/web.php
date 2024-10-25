@@ -6,16 +6,10 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\CartController;
 use App\Models\Product;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LandingPageController::class, 'index'])->name('landing.page');
 
 Route::get('/template', function () {
     return view('template.master');
-});
-
-Route::get('/landing', function () {
-    return view('landing.page');
 });
 
 // // Route untuk menampilkan halaman tambah produk
@@ -30,11 +24,14 @@ Route::prefix('admin')->group(function () {
     Route::get('/products', [ProductController::class, 'index'])->name('admin.product.index');
     Route::get('/products/create', [ProductController::class, 'create'])->name('admin.product.create');
     Route::post('/products', [ProductController::class, 'store'])->name('admin.product.store');
-    Route::delete('/admin/product/{id}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
+    Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
     Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('admin.product.edit');
     Route::put('/products/{product}', [ProductController::class, 'update'])->name('admin.product.update');
-    // Tambahkan rute untuk edit dan destroy jika diperlukan
+
+    // Route untuk melihat detail produk (Show)
+    Route::get('/products/{product}', [ProductController::class, 'show'])->name('admin.product.show');
 });
+
 // Route untuk halaman landing
 Route::get('/landing', [LandingPageController::class, 'index'])->name('landing.page');
 // Route untuk Cart

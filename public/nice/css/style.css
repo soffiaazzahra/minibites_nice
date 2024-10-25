@@ -215,74 +215,113 @@ header .fa-bars{
     
  }
 
- .menu .box-container{
-    display: flex;
-    flex-wrap: wrap;
+ .menu .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsif untuk 3 card dalam satu baris */
     gap: 1.5rem;
- }
- .menu .box-container .box{
-    flex: 1 1 30rem;
+    padding: 1rem;
+}
+
+.menu .box-container .box {
     box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
     border-radius: .5rem;
     border: .1rem solid rgba(0, 0, 0, .1);
-    position: relative;
- }
-.menu .box-container .box .image{
-    position: relative;
-    text-align: center;
-    padding-top: 2rem;
     overflow: hidden;
+    transition: transform 0.3s ease;
 }
-.menu .box-container .box .image img{
-    height: 25rem;
+
+.menu .box-container .box:hover {
+    transform: scale(1.05);
 }
-.menu .box-container .box:hover .image img{
-    transform: scale(1.1);
+
+.menu .box-container .box .image {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
 }
-.menu .box-container .box .image .icons{
+
+.menu .box-container .box .image img {
+    width: 100%; /* Memastikan gambar memenuhi lebar container */
+    height: 25rem; /* Konsisten untuk semua card */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.menu .box-container .box:hover .image img {
+    transform: scale(1.1); /* Efek zoom saat hover */
+}
+
+.menu .box-container .box .image .icons {
     position: absolute;
-    bottom: -7rem; left: 0; right: 0;
+    bottom: -5rem;
+    left: 0;
+    right: 0;
     display: flex;
+    justify-content: space-between;
+    transition: bottom 0.3s ease;
 }
-.menu .box-container .box:hover .image .icons{
+
+.menu .box-container .box:hover .image .icons {
     bottom: 0;
 }
-.menu .box-container .box .image .icons a{
-    height: 5rem;
-    line-height: 5rem;
-    font-size: 2rem;
-    width: 50%;
-    background: var(--red);
+
+/* Styling untuk box container icons (Add to Cart dan Love) */
+.menu .box-container .box .image .icons {
+    position: absolute;
+    bottom: -4rem; /* Jarak default untuk ikon agar terlihat lebih dinamis saat hover */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+/* Animasi saat hover pada box, untuk memunculkan icons */
+.menu .box-container .box:hover .image .icons {
+    bottom: 0; /* Posisi naik saat hover */
+}
+
+/* Desain tombol untuk Add to Cart dan Love */
+.menu .box-container .box .image .icons a {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1.8rem;
+    text-align: center;
     color: #fff;
+    background: var(--red);
+    transition: background 0.3s ease;
 }
-.menu .box-container .box .image .icons .cart-btn{
-    border-left: .1rem solid #fff7;
-    border-right: .1rem solid #fff7;
-    width: 100%;
+
+/* Border antar tombol (Add to Cart dan Love) */
+.menu .box-container .box .image .icons a:not(:last-child) {
+    border-right: .1rem solid rgba(255, 255, 255, 0.3);
 }
-.menu .box-container .box .image .icons a:hover{
+
+/* Hover effect pada tombol */
+.menu .box-container .box .image .icons a:hover {
     background: #333;
 }
-.menu .box-container .box .content{
-    padding: 2rem;
+
+
+
+.menu .box-container .box .content {
+    padding: 1.5rem;
     text-align: center;
 }
-.menu .box-container .box .content h3{
-    font-size: 2.5rem;
+
+.menu .box-container .box .content h3 {
+    font-size: 1.8rem;
     color: #333;
+    margin-bottom: 0.5rem;
 }
-.menu .box-container .box .content .price{
-    font-size: 2.5rem;
+
+.menu .box-container .box .content .price {
+    font-size: 2rem;
     color: var(--red);
-    font-weight: bolder;
-    padding-top: 1rem;
+    font-weight: bold;
+    padding-top: 0.5rem;
 }
-.menu .box-container .box .content .span{
-    font-size: 1.5rem;
-    color: #999;
-    font-weight: lighter;
-    text-decoration: line-through;
-}
+
 
 .contact .row{
     display: flex;

@@ -2,15 +2,6 @@
 
 @section('content')
 <div class="container mt-5">
-    <!-- Breadcrumb -->
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item">
-                <a href="{{ route('landing.page') }}">Home</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-        </ol>
-    </nav>
 
     <h2 class="mb-4">Daftar Produk</h2>
 
@@ -43,6 +34,7 @@
                 <td>{{ $product->deskripsi }}</td>
                 <td>
                     <!-- Tombol untuk edit dan delete -->
+                    <a href="{{ route('admin.product.show', $product->id) }}" class="btn btn-info btn-sm">Show</a>
                     <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-warning btn-sm">Edit</a>
                     <form action="{{ route('admin.product.destroy', $product->id) }}" method="POST" style="display:inline;">
                         @csrf

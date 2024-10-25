@@ -49,6 +49,8 @@
                         @csrf
                         <!-- Ikon Add to Cart, klik ini akan memicu form submit -->
                         <a href="#" class="btn-icon fas fa-shopping-cart" onclick="event.preventDefault(); document.getElementById('add-to-cart-{{ $product->id }}').submit();"></a>
+                        <a href="{{ route('admin.product.show', $product->id) }}" class="btn-icon fas fa-search"></a>
+                    
                     </form>
                 </div>                
             </div>
