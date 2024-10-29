@@ -74,7 +74,7 @@
 <header class="fixed-top">
     <div class="container d-flex justify-content-between align-items-center py-3">
         <!-- Logo -->
-        <a href="#" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
+        <a href="/admin" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
 
         <!-- Navbar Links -->
         <nav class="navbar navbar-expand-lg">
@@ -84,16 +84,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/admin">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#menu">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link active" href="/admin">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.product.index') }}">Admin</a>
@@ -104,12 +95,6 @@
 
         <!-- Icons -->
         <div class="icons d-flex align-items-center">
-            {{-- <a href="#" class="me-3">
-                <i class="fas fa-heart" style="font-size: 2rem;"></i>
-            </a>
-            <a href="#" class="me-3">
-                <i class="fas fa-shopping-cart" style="font-size: 2rem;"></i>
-            </a> --}}
             <form action="{{ route('auth.logout') }}" method="post">
                 @csrf
                 <button type="submit" class="btn btn-primary" style="font-size: 2rem;">Logout</button>

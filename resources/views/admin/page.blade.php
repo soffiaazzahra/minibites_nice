@@ -31,8 +31,6 @@
 
     @include('admin.home.navbar')
 
-    {{-- @include('admin.home.main') --}}
-
     <div class="container mt-5">
         @yield('content')
     </div>

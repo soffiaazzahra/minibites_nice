@@ -17,11 +17,9 @@
     <!-- header section starts -->
 
     @include('user.home.navbar')
-     <!-- header section ends -->
+    <!-- header section ends -->
 
-
-
-     <!-- home section starts -->
+    <!-- home section starts -->
     @include('user.home.main')
 
     <!--  footer section starts -->

@@ -40,7 +40,7 @@
             <div class="image">
                 <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->nama }}" width="300" height="auto">
 
-                <div class="icons">
+                {{-- <div class="icons">
                     <!-- Tombol Love -->
                     <a href="#" class="btn-icon fas fa-heart"></a>
 
@@ -50,7 +50,7 @@
                     </form>
                     <!-- Ikon Add to Cart, klik ini akan memicu form submit -->
                     <a href="#" class="btn-icon fas fa-shopping-cart" onclick="event.preventDefault(); document.getElementById('add-to-cart-{{ $product->id }}').submit();"></a>
-                </div>
+                </div> --}}
             </div>
 
             <div class="content">

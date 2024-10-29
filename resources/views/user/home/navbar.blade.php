@@ -96,7 +96,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('landing.page') }}">Home</a> <!-- Perbarui link Home -->
+                            <a class="nav-link active" href="/user">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#about">About</a>
@@ -122,8 +122,6 @@
                     <span id="cart-count">
                         {{ session('cart') ? count(session('cart')) : 0 }}
                     </span>
-                <a >
-                    {{-- <i class="btn btn-primary" style="font-size: 2rem;">Login</i>    --}}
                 </a>
                 <form action="{{ route('auth.logout') }}" method="post">
                     @csrf
