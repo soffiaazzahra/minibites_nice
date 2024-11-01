@@ -22,9 +22,8 @@
     </div>
     <div class="content">
         <h3>Why choose us</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui sed, consectetur tempore autem perspiciatis aspernatur repellendus animi quos dolorem delectus omnis error reiciendis doloremque velit soluta doloribus? Unde, quos aspernatur.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti hic aspernatur optio alias eum aliquam quas perferendis nobis asperiores. At cumque nulla perferendis laborum deserunt. A voluptatibus porro optio aspernatur.</p>
-    <a href="#" class="btn">learn more</a>
+        <p>MiniBites hadir dengan komitmen untuk memberikan pengalaman rasa terbaik melalui produk berkualitas yang dibuat dari bahan pilihan dan diproses secara higienis. Lebih dari sekadar pastry, kami mengutamakan cita rasa otentik yang memanjakan setiap gigitan serta menyajikan variasi rasa yang mengikuti tren dan selera masa kini.</p>
+        <p>Dengan resep asli dan inovasi terbaru, MiniBites berusaha menciptakan momen spesial bagi setiap pelanggan kami. Kami memahami bahwa kepuasan pelanggan adalah prioritas utama, sehingga kami selalu menawarkan produk dengan kualitas premium dan layanan yang ramah serta terpercaya. Kami percaya bahwa kelezatan, kualitas, dan nilai tambah produk kami akan membuat MiniBites menjadi pilihan tepat bagi pecinta pastry.</p>
     </div>
 </div>
 
@@ -43,16 +42,14 @@
                 <div class="icons">
                     <!-- Tombol Love -->
                     <a href="#" class="btn-icon fas fa-heart"></a>
-                
+
                     <!-- Tombol Add to Cart -->
                     <form action="{{ route('cart.add', $product->id) }}" method="POST" id="add-to-cart-{{ $product->id }}">
                         @csrf
-                        <!-- Ikon Add to Cart, klik ini akan memicu form submit -->
-                        <a href="#" class="btn-icon fas fa-shopping-cart" onclick="event.preventDefault(); document.getElementById('add-to-cart-{{ $product->id }}').submit();"></a>
-                        <a href="{{ route('admin.product.show', $product->id) }}" class="btn-icon fas fa-search"></a>
-                    
                     </form>
-                </div>                
+                    <!-- Ikon Add to Cart, klik ini akan memicu form submit -->
+                    <a href="#" class="btn-icon fas fa-shopping-cart" onclick="event.preventDefault(); document.getElementById('add-to-cart-{{ $product->id }}').submit();"></a>
+                </div>
             </div>
 
             <div class="content">
