@@ -39,7 +39,7 @@
 <body>
 
     <!-- Sertakan Navbar -->
-    @include('landing.home.navbar')
+    @include('user.home.navbar')
 
     <!-- Konten Keranjang Belanja -->
     <div class="container cart-content"> <!-- Tambahkan class cart-content -->
@@ -68,7 +68,7 @@
                                 <div class="flex-grow-1">
                                     <h5 class="card-title">{{ $details['name'] }}</h5>
                                     <p class="card-text">Rp {{ number_format($details['price'], 3, '.', '.') }}</p>
-                                    <p class="card-text">Jumlah: 
+                                    <p class="card-text">Jumlah:
                                         <input type="number" name="quantities[{{ $id }}]" value="{{ $details['quantity'] }}" min="1" class="form-control w-50 quantity-input" style="display:inline-block;">
                                     </p>
                                 </div>

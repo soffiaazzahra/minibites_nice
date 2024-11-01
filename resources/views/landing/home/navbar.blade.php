@@ -79,6 +79,12 @@
             padding: 0; /* Menghapus padding */
             font-weight: bold; /* Menjadikan teks lebih tebal */
         }
+
+        .disabled-icon {
+            cursor: not-allowed;      /* Ubah kursor menjadi 'not-allowed' */
+            pointer-events: none;     /* Hilangkan fungsionalitas klik ikon */
+            opacity: 0.5;             /* Opsional: Beri efek transparan */
+        }
     </style>
 </head>
 <body>
@@ -113,11 +119,11 @@
 
             <!-- Icons -->
             <div class="icons d-flex align-items-center">
-                <a href="#" class="me-3">
+                <a href="#" class="me-3 disabled-icon">
                     <i class="fas fa-heart" style="font-size: 1.5rem;"></i>
                 </a>
                 <!-- Icon Shopping Cart dengan badge jumlah produk -->
-                <a href="{{ route('cart.view') }}" class="me-3 position-relative">
+                <a href="{{ route('cart.view') }}" class="me-3 position-relative disabled-icon">
                     <i class="fas fa-shopping-cart" style="font-size: 1.5rem;"></i> <!-- Ukuran ikon diubah -->
                     <span id="cart-count">
                         {{ session('cart') ? count(session('cart')) : 0 }}
@@ -125,10 +131,6 @@
                 <a href="{{ route('auth.login') }}">
                     <i class="btn btn-primary" style="font-size: 2rem;">Login</i>
                 </a>
-                <form action="{{ route('auth.logout') }}" method="post">
-                    @csrf
-                    <button type="submit" class="btn btn-primary" style="font-size: 2rem;">Logout</button>
-                </form>
             </div>
         </div>
     </header>
