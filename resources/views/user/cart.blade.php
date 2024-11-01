@@ -84,6 +84,9 @@
             <!-- Total Belanja -->
             <div class="cart-total">
                 <h3>Total Belanja: Rp <span id="total-price">0</span></h3>
+                <a href="#" id="whatsapp-button" class="btn btn-success mt-3" style="display: none;" target="_blank">
+                    Pesan via WhatsApp
+                </a>
             </div>
 
         @else
@@ -97,50 +100,56 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Ambil semua checkbox produk
             const checkboxes = document.querySelectorAll('.product-checkbox');
             const totalPriceElement = document.getElementById('total-price');
-
-            // Fungsi untuk menghitung total harga
+            const whatsappButton = document.getElementById('whatsapp-button');
+    
+            // Fungsi untuk menghitung total harga dan membuat pesan WhatsApp
             function calculateTotal() {
                 let total = 0;
-
-                // Loop melalui setiap checkbox
-                checkboxes.forEach(function(checkbox) {
+                let selectedProducts = [];
+    
+                checkboxes.forEach(checkbox => {
                     if (checkbox.checked) {
-                        // Ambil harga produk dan jumlah dari input
-                        const price = parseFloat(checkbox.getAttribute('data-price'));
-                        const quantityInput = checkbox.closest('.d-flex').querySelector('.quantity-input');
-                        const quantity = parseInt(quantityInput.value);
-
-                        // Hitung subtotal dan tambahkan ke total
-                        total += price * quantity;
+                        const productCard = checkbox.closest('.d-flex');
+                        const price = parseFloat(checkbox.dataset.price); // Harga asli produk
+                        const quantity = parseInt(productCard.querySelector('.quantity-input').value);
+                        const productName = productCard.querySelector('.card-title').textContent;
+    
+                        total += price * quantity; // Hitung total belanja
+                        selectedProducts.push(`${productName} x${quantity} - Rp ${formatPrice(price)}`); // Tampilkan harga asli
                     }
                 });
-
-                // Update elemen total harga dengan format yang diinginkan
-                totalPriceElement.textContent = numberWithCommas(total.toFixed(3));
+    
+                totalPriceElement.textContent = formatPrice(total); // Tampilkan total
+                toggleWhatsappButton(selectedProducts);
             }
-
-            // Fungsi untuk menambahkan tanda koma pada angka
-            function numberWithCommas(x) {
-                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    
+            // Fungsi untuk menampilkan atau menyembunyikan tombol WhatsApp
+            function toggleWhatsappButton(products) {
+                if (products.length > 0) {
+                    const message = `Halo, saya ingin memesan:\n\n${products.join('\n')}\n\nTotal: Rp ${totalPriceElement.textContent}`;
+                    whatsappButton.href = `https://wa.me/6289501777943?text=${encodeURIComponent(message)}`;
+                    whatsappButton.style.display = 'inline-block';
+                } else {
+                    whatsappButton.style.display = 'none';
+                }
             }
-
-            // Tambahkan event listener pada setiap checkbox dan input quantity
-            checkboxes.forEach(function(checkbox) {
-                checkbox.addEventListener('change', calculateTotal);
-            });
-
-            // Tambahkan event listener untuk input quantity
-            document.querySelectorAll('.quantity-input').forEach(function(input) {
-                input.addEventListener('input', calculateTotal);
-            });
-
+    
+            // Fungsi untuk menambahkan format koma pada harga
+            function formatPrice(price) {
+                return price.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ".").replace('.', '.');
+            }
+    
+            checkboxes.forEach(checkbox => checkbox.addEventListener('change', calculateTotal));
+            document.querySelectorAll('.quantity-input').forEach(input => input.addEventListener('input', calculateTotal));
+    
             // Hitung total saat halaman pertama kali dimuat
             calculateTotal();
         });
     </script>
+    
+    
 
 </body>
 </html>
