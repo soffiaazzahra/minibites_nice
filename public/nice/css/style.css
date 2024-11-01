@@ -105,9 +105,9 @@ header .fa-bars{
     right: -15%; /* Menempatkan badge lebih dekat ke kanan ikon */
     transform: translate(50%, -50%); /* Pindahkan badge sedikit untuk penyesuaian */
 }
-
-
-
+.admin-container {
+    padding-top: 8rem; /* Sesuaikan nilai padding ini agar sesuai dengan tinggi navbar */
+}
 .home {
     display: flex;
     align-items: center;
@@ -487,4 +487,44 @@ header .fa-bars{
     }
 
 
+}
+
+/* Mengatur ukuran tombol admin sesuai ukuran normal */
+.btn-admin {
+    padding: 0.5rem 1rem; /* Tambah padding untuk ukuran tombol yang lebih besar */
+    font-size: 1.125rem; /* Ganti ukuran font untuk tombol yang lebih besar */
+    border-radius: 0.25rem; /* Radius sudut tetap sama */
+}
+
+/* Optional: Jika Anda ingin mengubah warna atau gaya spesifik untuk tombol admin */
+.btn-admin.btn-success {
+    background-color: #28a745; /* Ganti dengan warna yang sesuai */
+}
+
+.btn-admin.btn-info {
+    background-color: #17a2b8; /* Ganti dengan warna yang sesuai */
+}
+
+.btn-admin.btn-warning {
+    background-color: #ffc107; /* Ganti dengan warna yang sesuai */
+}
+
+.btn-admin.btn-danger {
+    background-color: #dc3545; /* Ganti dengan warna yang sesuai */
+}
+.admin-container {
+    margin-top: 80px; /* Atur jarak sesuai tinggi navbar */
+}
+.admin-container h2 {
+    font-size: 2rem; /* Memperbesar ukuran judul */
+    font-weight: bold; /* Memberikan penekanan tebal pada judul */
+}
+
+.admin-container table th, 
+.admin-container table td {
+    font-size: 1.25rem; /* Memperbesar ukuran teks dalam tabel */
+}
+
+.admin-container .btn-admin {
+    font-size: 1rem; /* Ukuran font tombol tetap nyaman dan proporsional */
 }

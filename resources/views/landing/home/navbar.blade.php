@@ -125,9 +125,9 @@
                 <!-- Icon Shopping Cart dengan badge jumlah produk -->
                 <a href="{{ route('cart.view') }}" class="me-3 position-relative disabled-icon">
                     <i class="fas fa-shopping-cart" style="font-size: 1.5rem;"></i> <!-- Ukuran ikon diubah -->
-                    <span id="cart-count">
+                    {{-- <span id="cart-count">
                         {{ session('cart') ? count(session('cart')) : 0 }}
-                    </span>
+                    </span> --}}
                 <a href="{{ route('auth.login') }}">
                     <i class="btn btn-primary" style="font-size: 2rem;">Login</i>
                 </a>

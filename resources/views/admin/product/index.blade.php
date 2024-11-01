@@ -1,13 +1,13 @@
 @extends('admin.page')
 
 @section('content')
-<div class="container mt-5">
+<div class="container admin-container" style="padding-top: 5px;">  <!-- Menggunakan Bootstrap container di sini -->
 
     <h2 class="mb-4">Daftar Produk</h2>
 
     <!-- Tombol Create di atas tabel -->
     <div class="mb-3">
-        <a href="{{ route('admin.product.create') }}" class="btn btn-success">Tambah Produk</a>
+        <a href="{{ route('admin.product.create') }}" class="btn btn-success btn-admin">Tambah Produk</a>
     </div>
 
     <!-- Tabel daftar produk -->
@@ -34,12 +34,12 @@
                 <td>{{ $product->deskripsi }}</td>
                 <td>
                     <!-- Tombol untuk edit dan delete -->
-                    <a href="{{ route('admin.product.show', $product->id) }}" class="btn btn-info btn-sm">Show</a>
-                    <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('admin.product.show', $product->id) }}" class="btn btn-info btn-admin">Show</a>
+                    <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-warning btn-admin">Edit</a>
                     <form action="{{ route('admin.product.destroy', $product->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                        <button type="submit" class="btn btn-danger btn-admin">Hapus</button>
                     </form>
                 </td>
             </tr>

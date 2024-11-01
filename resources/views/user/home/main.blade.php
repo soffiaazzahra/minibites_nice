@@ -2,7 +2,7 @@
     <div class="content">
         <h3>Welcome</h3>
         <span>MINIBITES</span>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic animi adipisci rem. Facilis, dolores iure est tempora fugit voluptatum molestias vitae perspiciatis, obcaecati pariatur molestiae ipsam quos veniam non eaque?</p>
+        <p>A Little Bliss in Every Bite!</p>
     </div>
     <div class="image">
         <img src="{{asset('nice/images/strawberry_cream_cheese-removebg-preview.png')}}" alt="Strawberry Cream Cheese">
@@ -12,23 +12,21 @@
 
  <!-- home section end -->
   <!-- about section starts -->
-  </section>
-   <section class="about" id="about">
+ 
+  <section class="about" id="about">
     <h1 class="heading"> <span> about </span> us </h1>
     <div class="row">
         <div class="video-container">
-    <video src="{{asset('nice/images/Snaptik.app_7278215670423145734.mp4')}}">
-    <h3>Pastry Minibites</h3>
+            <video src="{{asset('nice/images/Snaptik.app_7278215670423145734.mp4')}}" controls autoplay muted loop></video>
+            <h3>Pastry Minibites</h3>
+        </div>
+        <div class="content">
+            <h3>Why choose us</h3>
+            <p>MiniBites hadir dengan komitmen untuk memberikan pengalaman rasa terbaik melalui produk berkualitas yang dibuat dari bahan pilihan dan diproses secara higienis. Lebih dari sekadar pastry, kami mengutamakan cita rasa otentik yang memanjakan setiap gigitan serta menyajikan variasi rasa yang mengikuti tren dan selera masa kini.</p>
+            <p>Dengan resep asli dan inovasi terbaru, MiniBites berusaha menciptakan momen spesial bagi setiap pelanggan kami. Kami memahami bahwa kepuasan pelanggan adalah prioritas utama, sehingga kami selalu menawarkan produk dengan kualitas premium dan layanan yang ramah serta terpercaya. Kami percaya bahwa kelezatan, kualitas, dan nilai tambah produk kami akan membuat MiniBites menjadi pilihan tepat bagi pecinta pastry.</p>
+        </div>
     </div>
-    <div class="content">
-        <h3>Why choose us</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui sed, consectetur tempore autem perspiciatis aspernatur repellendus animi quos dolorem delectus omnis error reiciendis doloremque velit soluta doloribus? Unde, quos aspernatur.</p>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti hic aspernatur optio alias eum aliquam quas perferendis nobis asperiores. At cumque nulla perferendis laborum deserunt. A voluptatibus porro optio aspernatur.</p>
-    <a href="#" class="btn">learn more</a>
-    </div>
-</div>
-
-   </section>
+</section>
    <!-- about section ends -->
 
    <!-- menu section starts -->
