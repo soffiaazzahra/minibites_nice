@@ -113,7 +113,7 @@
 
             <!-- Icons -->
             <div class="icons d-flex align-items-center">
-                <a href="#" class="me-3">
+                <a href="{{ route('view.wishlist') }}" class="me-3">
                     <i class="fas fa-heart" style="font-size: 1.5rem;"></i>
                 </a>
                 <!-- Icon Shopping Cart dengan badge jumlah produk -->

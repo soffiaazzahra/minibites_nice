@@ -37,11 +37,16 @@
         <div class="box">
             <div class="image">
                 <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->nama }}" width="300" height="auto">
-
                 <div class="icons">
                     <!-- Tombol Love -->
-                    <a href="#" class="btn-icon fas fa-heart"></a>
+                    <a href=""
+                        onclick="event.preventDefault(); document.getElementById('wishlist-toggle-{{ $product->id }}').submit();"
+                        class="btn-icon fas fa-heart">
+                    </a>
 
+                    <form id="wishlist-toggle-{{ $product->id }}" action="{{ route('wishlist.toggle', $product->id) }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                     <!-- Tombol Add to Cart -->
                     <form action="{{ route('cart.add', $product->id) }}" method="POST" id="add-to-cart-{{ $product->id }}">
                         @csrf

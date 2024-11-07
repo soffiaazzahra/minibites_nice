@@ -9,7 +9,8 @@ use App\Http\Controllers\{
     LandingPageController,
     UserController,
     AdminController,
-    CartController
+    CartController,
+    WishlistController,
 };
 // use App\Http\Controllers\ProductController;
 // use App\Http\Controllers\LandingPageController;
@@ -72,9 +73,15 @@ Route::prefix('user')->group(function () {
     Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
     // Route untuk menghapus produk dari keranjang
     Route::get('/cart/remove/{id}', [CartController::class, 'destroy'])->name('cart.remove');
+
+    Route::get('/wishlist', [WishlistController::class, 'viewWishlist'])->name('view.wishlist');
+    Route::post('/wishlist/toggle/{product}', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
+    Route::get('/wishlist/add/{productId}', [WishlistController::class, 'add'])->name('wishlist.add');
+    Route::get('/wishlist/remove/{productId}', [WishlistController::class, 'remove'])->name('wishlist.remove');
 });
 
 
 // Route untuk halaman landing
 Route::get('/landing', [LandingPageController::class, 'index'])->name('landing.page');
+
 
