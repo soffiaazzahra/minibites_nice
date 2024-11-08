@@ -42,35 +42,53 @@
     @include('user.home.navbar')
 
     <!-- Konten Keranjang Belanja -->
-    <div class="container cart-content"> <!-- Tambahkan class cart-content -->
-        <h1>Whishlist Produk</h1>
+    <section class="menu" id="menu">
+        <div class="container cart-content">
+            <h1>Whishlist Produk</h1>
 
-        @if ($wishlists->isEmpty())
-        <div class="alert alert-info">
-            Anda Belum Menambahkan Whishlist
+            @if ($wishlists->isEmpty())
+            <div class="alert alert-info">
+                Anda Belum Menambahkan Whishlist
+            </div>
+            @else
+            <div class="box-container">
+                @foreach($wishlists as $item)
+                    <div class="product-card">
+                        <div class="box">
+                            <div class="image">
+                                <div class="product">
+                                    <img src="{{ asset('storage/' . $item->product->image) }}" alt="{{ $item->product->nama }}" width="150">
+                                </div>
+                                <div class="icons">
+                                    <!-- Tombol Love -->
+                                    <a href=""
+                                        onclick="event.preventDefault(); document.getElementById('wishlist-toggle-{{ $item->product->id }}').submit();"
+                                        class="btn-icon fas fa-heart">
+                                    </a>
+                                    <form id="wishlist-toggle-{{ $item->product->id }}" action="{{ route('wishlist.toggle', $item->product->id) }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <!-- Tombol Add to Cart -->
+                                    <form action="{{ route('cart.add', $item->product->id) }}" method="POST" id="add-to-cart-{{ $item->product->id }}">
+                                        @csrf
+                                    </form>
+                                    <!-- Ikon Add to Cart, klik ini akan memicu form submit -->
+                                    <a href="#" class="btn-icon fas fa-shopping-cart" onclick="event.preventDefault(); document.getElementById('add-to-cart-{{ $item->product->id }}').submit();"></a>
+                                </div>
+                            </div>
+
+                            <div class="content">
+                                <h3>{{ $item->product->nama }}</h3>
+                                    <p>{{ $item->product->deskripsi }}</p>
+                                    <p>Price: Rp {{ number_format($item->product->harga, 3, '.', '.') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            @endif
         </div>
-        @else
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>Product Price</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($wishlists as $index => $wishlist)
-                <tr>
-                    <td>{{ $wishlist->product->name }}</td>
-                    <td>{{ number_format($wishlist->product->price, 2) }}</td>
-                    <td>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-    @endif
-    </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
