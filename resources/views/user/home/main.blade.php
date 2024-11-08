@@ -71,15 +71,14 @@
         <section class="contact" id="contact">
             <h1 class="heading"> <span> contact </span> us </h1>
         <div class="row">
-            <form action="">
-                <input type="text" placeholder="name" class="box">
-                <input type="email" placeholder="email" class="box">
-                <input type="number" placeholder="number" class="box">
-                <textarea name="" class="box" placeholder="message" id="" cols="30" rows="10"></textarea>
-                <input type="submit" value="send message" class="btn">
+            <form action="{{ route('contact.submit') }}" method="POST">
+                @csrf
+                <input type="text" name="name" placeholder="Name" class="box" required>
+                <input type="email" name="email" placeholder="Email" class="box" required>
+                <input type="number" name="number" placeholder="Number" class="box" required>
+                <textarea name="message" class="box" placeholder="Message" cols="30" rows="10" required></textarea>
+                <input type="submit" value="Send Message" class="btn">
             </form>
-            <div class="image">
-                <img src="images/" alt="">
-        </div>
+            
         </section>
         <!-- contact section ends -->

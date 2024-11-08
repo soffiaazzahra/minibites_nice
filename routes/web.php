@@ -11,6 +11,7 @@ use App\Http\Controllers\{
     AdminController,
     CartController,
     WishlistController,
+    ContactController,
 };
 // use App\Http\Controllers\ProductController;
 // use App\Http\Controllers\LandingPageController;
@@ -65,6 +66,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/products/{product}', [ProductController::class, 'show'])->name('admin.product.show');
 });
 
+Route::get('/admin/contact', [ContactController::class, 'index'])->name('admin.contact.index');
+
 Route::prefix('user')->group(function () {
     // Route untuk navbar home pada halaman cart
     Route::get('/', [UserController::class, 'user'])->name('user.page');
@@ -84,4 +87,6 @@ Route::prefix('user')->group(function () {
 // Route untuk halaman landing
 Route::get('/landing', [LandingPageController::class, 'index'])->name('landing.page');
 
+
+Route::post('/contact/submit', [ContactController::class, 'store'])->name('contact.submit');
 

@@ -84,10 +84,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/admin">Dashboard</a>
+                        <a class="nav-link" href="{{ route('admin.product.index') }}">Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.product.index') }}">Admin</a>
+                        <a class="nav-link" href="{{ route('admin.contact.index') }}">Contact</a>
                     </li>
                 </ul>
             </div>
