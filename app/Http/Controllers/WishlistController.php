@@ -45,10 +45,10 @@ class WishlistController extends Controller
     {
         $user = auth()->user(); // Mendapatkan user yang terautentikasi
         $wishlists = Wishlist::with('product') // Menarik relasi dengan model 'Product'
-        ->where('user_id', $user->id)
-        ->get(); // Ambil semua data wishlist yang berhubungan dengan user
+            ->where('user_id', $user->id)
+            ->get(); // Ambil semua data wishlist yang berhubungan dengan user
 
-    return view('user.wishlist', compact('wishlists')); // Kirim data wishlist ke view
+        return view('user.wishlist', compact('wishlists')); // Kirim data wishlist ke view
     }
 
 

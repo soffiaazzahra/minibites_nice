@@ -12,7 +12,7 @@
 
  <!-- home section end -->
   <!-- about section starts -->
- 
+
   <section class="about" id="about">
     <h1 class="heading"> <span> about </span> us </h1>
     <div class="row">
@@ -64,7 +64,7 @@
         </div>
         @endforeach
     </div>
-</section>
+    </section>
 
     <!-- menu section ends -->
 
