@@ -86,7 +86,7 @@
     <header class="fixed-top">
         <div class="container d-flex justify-content-between align-items-center py-3">
             <!-- Logo -->
-            <a href="#" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
+            <a href="/user" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
 
             <!-- Navbar Links -->
             <nav class="navbar navbar-expand-lg">
@@ -99,13 +99,13 @@
                             <a class="nav-link active" href="/user">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
+                            <a class="nav-link" href="/user/menu">Menu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#menu">Menu</a>
+                            <a class="nav-link" href="/user/about">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
+                            <a class="nav-link" href="/user/contact">Contact</a>
                         </li>
                     </ul>
                 </div>

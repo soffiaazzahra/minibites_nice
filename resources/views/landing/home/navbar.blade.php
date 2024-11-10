@@ -92,7 +92,7 @@
     <header class="fixed-top">
         <div class="container d-flex justify-content-between align-items-center py-3">
             <!-- Logo -->
-            <a href="#" class="logo text-dark fw-bold">MINIBITES<span class="text-danger">.</span></a>
+            <a href="/landing" class="logo text-dark fw-bold">MINIBITES<span class="text-danger">.</span></a>
 
             <!-- Navbar Links -->
             <nav class="navbar navbar-expand-lg">
@@ -105,10 +105,10 @@
                             <a class="nav-link active" href="{{ route('landing.page') }}">Home</a> <!-- Perbarui link Home -->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
+                            <a class="nav-link" href="/landing/menu">Menu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#menu">Menu</a>
+                            <a class="nav-link" href="/landing/about">About Us</a>
                         </li>
                     </ul>
                 </div>

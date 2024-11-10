@@ -20,4 +20,40 @@ class UserController extends Controller
             'notif'     => 'login dulu sebelum akses Dashboard',
         ]);
     }
+
+    public function menu()
+    {
+        if(Auth::check())
+        {
+            $products = Product::all();
+            return view('user.menu', compact('products'));
+        }
+        return redirect()->route('auth.login')->withErrors([
+            'notif'     => 'login dulu sebelum akses Dashboard',
+        ]);
+    }
+
+    public function about()
+    {
+        if(Auth::check())
+        {
+            $products = Product::all();
+            return view('user.about');
+        }
+        return redirect()->route('auth.login')->withErrors([
+            'notif'     => 'login dulu sebelum akses Dashboard',
+        ]);
+    }
+
+    public function contact()
+    {
+        if(Auth::check())
+        {
+            $products = Product::all();
+            return view('user.contact');
+        }
+        return redirect()->route('auth.login')->withErrors([
+            'notif'     => 'login dulu sebelum akses Dashboard',
+        ]);
+    }
 }

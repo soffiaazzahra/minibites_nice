@@ -13,14 +13,20 @@ use App\Http\Controllers\{
     WishlistController,
     ContactController,
 };
-// use App\Http\Controllers\ProductController;
-// use App\Http\Controllers\LandingPageController;
 
-Route::get('/', [LandingPageController::class, 'index'])->name('landing.page');
+
 
 Route::get('/landing', function () {
     return view('landing.page');
 });
+
+// Route untuk halaman landing
+Route::prefix('landing')->group(function(){
+    Route::get('/', [LandingPageController::class, 'index'])->name('landing.page');
+    Route::get('/menu', [LandingPageController::class, 'menu'])->name('landing.menu');
+    Route::get('/about', [LandingPageController::class, 'about'])->name('landing.about');
+});
+// Route::get('/landing', [LandingPageController::class, 'index'])->name('landing.page');
 
 Route::middleware(['guest'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
@@ -43,15 +49,6 @@ Route::middleware(['can:isUser'])->group(function () {
 Route::middleware(['can:isAdmin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'admin'])->name('admin.page');
 });
-
-// // Route untuk menampilkan halaman tambah produk
-// Route::get('/menu/create', [MenuController::class, 'create'])->name('menu.create');
-
-// // Route untuk menyimpan produk
-// Route::post('/menu/store', [MenuController::class, 'store'])->name('menu.store');
-
-// Rute untuk dashboard admin
-// Route untuk dashboard admin
 
 Route::prefix('admin')->group(function(){
     Route::get('/', [AdminController::class, 'admin'])->name('admin.page');
@@ -81,12 +78,15 @@ Route::prefix('user')->group(function () {
     Route::post('/wishlist/toggle/{product}', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
     Route::get('/wishlist/add/{productId}', [WishlistController::class, 'add'])->name('wishlist.add');
     Route::get('/wishlist/remove/{productId}', [WishlistController::class, 'remove'])->name('wishlist.remove');
+
+    Route::post('/contact/submit', [ContactController::class, 'store'])->name('contact.submit');
+
+    Route::get('/menu', [UserController::class, 'menu'])->name('user.menu');
+    Route::get('/about', [UserController::class, 'about'])->name('user.about');
+    Route::get('/contact', [UserController::class, 'contact'])->name('user.contact');
 });
 
 
-// Route untuk halaman landing
-Route::get('/landing', [LandingPageController::class, 'index'])->name('landing.page');
 
 
-Route::post('/contact/submit', [ContactController::class, 'store'])->name('contact.submit');
 

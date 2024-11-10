@@ -74,7 +74,7 @@
 <header class="fixed-top">
     <div class="container d-flex justify-content-between align-items-center py-3">
         <!-- Logo -->
-        <a href="/admin" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
+        <a href="/admin/products" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
 
         <!-- Navbar Links -->
         <nav class="navbar navbar-expand-lg">

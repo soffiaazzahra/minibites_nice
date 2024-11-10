@@ -67,9 +67,8 @@
     </section>
 
     <!-- menu section ends -->
-
-        <section class="contact" id="contact">
-            <h1 class="heading"> <span> contact </span> us </h1>
+<section class="contact" id="contact">
+    <h1 class="heading"> <span> contact </span> us </h1>
         <div class="row">
             <form action="{{ route('contact.submit') }}" method="POST">
                 @csrf
@@ -79,6 +78,6 @@
                 <textarea name="message" class="box" placeholder="Message" cols="30" rows="10" required></textarea>
                 <input type="submit" value="Send Message" class="btn">
             </form>
-            
-        </section>
+        </div>
+</section>
         <!-- contact section ends -->
