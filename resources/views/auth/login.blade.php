@@ -1,19 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MINIBITES</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MINIBITES</title>
+  
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('templateadmintle/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="{{ asset('templateadmintle/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('templateadmintle/dist/css/adminlte.min.css') }}">
+  
+    <!-- Custom Styles -->
+    <style>
+      /* Menambahkan background gambar ke halaman login */
+      body {
+        background-image: url('{{ asset('nice/images/assorted-pastry-near-raisins-nuts.jpg') }}');
+        background-size: cover;
+        background-position: center;
+      }
+  
+      .login-box {
+        background: rgba(255, 255, 255, 0.7); /* Menambahkan transparansi */
+        padding: 20px;
+        border-radius: 8px;
+      }
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('templateadmintle/plugins/fontawesome-free/css/all.min.css') }}">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{ asset('templateadmintle/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('templateadmintle/dist/css/adminlte.min.css') }}">
-</head>
+      .btn-primary {
+    background-color: #CD3449;
+    border-color: #CD3449;
+  }
+
+  .btn-primary:hover {
+    background-color: #B82F41;
+    border-color: #B82F41;
+  }
+
+  .card-outline.card-primary {
+    border-top: 3px solid #CD3449;
+  }
+
+  .card-primary.card-outline .card-header a {
+    color: #CD3449;
+  }
+
+  .card-primary.card-outline .card-header a:hover {
+    color: #B82F41;
+  }
+    </style>
+  </head>
+  
 <body class="hold-transition login-page">
 <div class="login-box">
   @if ($message = Session::get('success'))
@@ -25,7 +64,7 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="landing" class="h1"><b>MINI</b>BITES</a>
+      <a href="landing" class="h1"><b>MINIBITES</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>

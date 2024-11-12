@@ -10,93 +10,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('nice/css/style.css') }}">
 
-    <!-- Custom CSS -->
-    <style>
-        /* Navbar Custom Styling */
-        header {
-            background-color: #fff; /* Latar belakang header */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan header */
-        }
-
-        .logo {
-            font-size: 2rem; /* Ukuran font logo */
-            color: #333; /* Warna logo */
-            text-decoration: none; /* Tanpa garis bawah */
-        }
-
-        .logo span {
-            color: var(--red); /* Warna aksen */
-        }
-
-        .navbar-nav .nav-link {
-            font-size: 1.3rem; /* Ukuran font link navbar */
-            padding: 0.5rem 1.5rem; /* Spasi pada link */
-            color: #666; /* Warna default link */
-            transition: color 0.3s ease-in-out; /* Transisi halus */
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: var(--red); /* Warna merah saat hover */
-        }
-
-        .navbar-nav .nav-link.active {
-            color: var(--red); /* Warna merah untuk link aktif */
-            font-weight: bold; /* Bold pada link aktif */
-        }
-
-        /* Tombol dashboard */
-        .btn-dashboard {
-            background-color: var(--red); /* Warna tombol */
-            border-radius: 5rem; /* Sudut tombol melengkung */
-            font-size: 1.3rem; /* Ukuran font tombol */
-            color: #fff; /* Warna teks tombol */
-            padding: 0.5rem 2rem; /* Spasi dalam tombol */
-            transition: background-color 0.3s ease-in-out; /* Transisi warna saat hover */
-        }
-
-        .btn-dashboard:hover {
-            background-color: #333; /* Warna saat hover */
-        }
-
-        /* Icons */
-        .icons a {
-            color: #666; /* Warna ikon */
-            transition: color 0.3s; /* Transisi warna */
-        }
-
-        .icons a:hover {
-            color: var(--red); /* Warna saat hover */
-        }
-
-        /* Custom styling untuk badge jumlah produk */
-        #cart-count {
-            font-size: 1rem; /* Ukuran font badge lebih besar dan bold */
-            position: absolute; /* Supaya badge muncul di atas ikon */
-            top: -5px; /* Menempatkan badge lebih dekat ke atas ikon */
-            right: -5px; /* Menempatkan badge lebih dekat ke kanan ikon */
-            color: var(--red); /* Mengatur warna teks badge */
-            background: none; /* Menghapus background */
-            padding: 0; /* Menghapus padding */
-            font-weight: bold; /* Menjadikan teks lebih tebal */
-        }
-    </style>
 </head>
 <body>
 
     <header class="fixed-top">
         <div class="container d-flex justify-content-between align-items-center py-3">
+            <input type="checkbox" name="" id="toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <label for="toggler" class="fa fa-bars"></label>
             <!-- Logo -->
+<<<<<<< HEAD
             <a href="/user" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
+=======
+            <a href="#" class="logo text-dark fw-bold">MINIBITES<span class="text-danger">.</span></a>
+>>>>>>> 2dc3e30 (buat navbar jadi responsif)
 
             <!-- Navbar Links -->
             <nav class="navbar navbar-expand-lg">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/user">Home</a>
+                            <a class="nav-link" href="/user">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/user/menu">Menu</a>
@@ -107,32 +40,39 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/user/contact">Contact</a>
                         </li>
+                        <!-- Tombol Logout untuk layar kecil -->
+                        <li class="nav-item d-lg-none">
+                            <form action="{{ route('auth.logout') }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Logout</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </nav>
 
-            <!-- Icons -->
+            <!-- Icons untuk layar besar dan kecil -->
             <div class="icons d-flex align-items-center">
                 <a href="{{ route('view.wishlist') }}" class="me-3">
                     <i class="fas fa-heart" style="font-size: 1.5rem;"></i>
                 </a>
                 <!-- Icon Shopping Cart dengan badge jumlah produk -->
                 <a href="{{ route('cart.view') }}" class="me-3 position-relative">
-                    <i class="fas fa-shopping-cart" style="font-size: 1.5rem;"></i> <!-- Ukuran ikon diubah -->
+                    <i class="fas fa-shopping-cart" style="font-size: 1.5rem;"></i>
                     <span id="cart-count">
                         {{ session('cart') ? count(session('cart')) : 0 }}
                     </span>
                 </a>
-                <form action="{{ route('auth.logout') }}" method="post">
+                <!-- Tombol Logout untuk layar besar -->
+                <form action="{{ route('auth.logout') }}" method="post" class="d-none d-lg-block">
                     @csrf
-                    <button type="submit" class="btn btn-primary" style="font-size: 2rem;">Logout</button>
+                    <button type="submit" class="btn btn-primary" style="font-size: 1.5rem;">Logout</button>
                 </form>
             </div>
         </div>
     </header>
 
-
-<!-- Sertakan JS Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Sertakan JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
