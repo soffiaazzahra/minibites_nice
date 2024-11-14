@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -32,7 +33,7 @@ class CartController extends Controller
     public function viewCart()
     {
         $cart = session()->get('cart');
-        return view('landing.cart', compact('cart'));
+        return view('user.cart', compact('cart'));
     }
 
     // Menghapus produk dari keranjang

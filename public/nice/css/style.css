@@ -105,67 +105,96 @@ header .fa-bars{
     right: -15%; /* Menempatkan badge lebih dekat ke kanan ikon */
     transform: translate(50%, -50%); /* Pindahkan badge sedikit untuk penyesuaian */
 }
-
-
-
+.admin-container {
+    padding-top: 8rem; /* Sesuaikan nilai padding ini agar sesuai dengan tinggi navbar */
+}
 .home {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Teks di kiri, gambar di kanan */
+    justify-content: space-between;
     min-height: 100vh;
-    background-color: #f5f5f5; /* Background warna solid */
+    background-color: #f5f5f5;
     padding: 0 5%;
 }
 
 .home .content {
     max-width: 50rem;
+    margin-top: 50px;
+    text-align: left;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@900&display=swap');
+
+.home .content h3 {
+    font-size: 6rem;
+    font-family: 'Playfair Display', serif; /* Font elegan */
+    color: #CD3449;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1.5px;
+}
+
+.home .content span {
+    font-size: 5rem;
+    font-family: 'Montserrat', sans-serif; /* Font modern */
+    background: linear-gradient(45deg, #CD3449, #ff7373); /* Gradient warna */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    letter-spacing: 3px;
+    padding: 1rem 0;
+    animation: pulse 2s infinite; /* Efek animasi */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+
+.home .content p {
+    font-size: 1.8rem;
+    color: #555;
+    padding: 1rem 0;
+    line-height: 1.6;
+    max-width: 40rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
 }
 
 .home .image {
-    flex: 1; /* Gambar akan mengisi sisa ruang */
+    flex: 1;
     display: flex;
     justify-content: flex-end;
 }
 
 .home .image img {
-    max-width: 100%; /* Membuat gambar responsif */
+    max-width: 90%;
     height: auto;
-}
-
-.home .content h3 {
-    font-size: 6rem;
-    color: #333;
-}
-
-.home .content span {
-    font-size: 3.5rem;
-    color: var(--red);
-    padding: 1rem 0;
-    line-height: 1.5;
-}
-
-.home .content p {
-    font-size: 1.5rem;
-    color: #999;
-    padding: 1rem 0;
-    line-height: 1.5;
+    margin-top: 20px;
 }
 
 .home .btn {
     display: inline-block;
-    background-color: var(--red);
+    background-color: #CD3449; /* Tombol sesuai warna tema */
     color: #fff;
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.6rem;
     border-radius: 0.5rem;
     text-decoration: none;
     transition: background 0.3s ease;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto', sans-serif;
 }
 
 .home .btn:hover {
-    background-color: darkred;
+    background-color: #a8283a; /* Sedikit lebih gelap untuk efek hover */
 }
-
 
 .about .row{
     display: flex;
@@ -175,18 +204,21 @@ header .fa-bars{
     padding: 2rem 0;
     padding-bottom: 3rem;
 }
-.about .row .video-container{
-    flex: 1 1 40rem;
+.about .row .video-container {
+    flex: 1 1 40rem; /* Atur lebar video */
     position: relative;
+    max-width: 100%; /* Agar lebar video tidak melebihi lebar kontainer */
+    overflow: hidden; /* Menghindari overflow */
+    height: 500px; /* Atur tinggi video sesuai keinginan (misalnya, 300px) */
 }
- .about.row .video-container video{
-    width: 100%;
-    border: 1.5rem solid #fff;
-    border-radius: .5rem;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-    height: 100%;
-    object-fit: cover;
- }
+
+.about .row .video-container video {
+    width: 100%; /* Membuat video menyesuaikan lebar kontainer */
+    height: 100%; /* Mengatur tinggi video agar mengikuti tinggi kontainer */
+    object-fit: cover; /* Memastikan video mengisi area kontainer tanpa mengubah rasio aspek */
+}
+
+
  .about .row .video-container h3{
     position: absolute;
     top: 50%; transform: translateY(-50%);
@@ -215,74 +247,113 @@ header .fa-bars{
 
  }
 
- .menu .box-container{
-    display: flex;
-    flex-wrap: wrap;
+ .menu .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsif untuk 3 card dalam satu baris */
     gap: 1.5rem;
- }
- .menu .box-container .box{
-    flex: 1 1 30rem;
+    padding: 1rem;
+}
+
+.menu .box-container .box {
     box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
     border-radius: .5rem;
     border: .1rem solid rgba(0, 0, 0, .1);
-    position: relative;
- }
-.menu .box-container .box .image{
-    position: relative;
-    text-align: center;
-    padding-top: 2rem;
     overflow: hidden;
+    transition: transform 0.3s ease;
 }
-.menu .box-container .box .image img{
-    height: 25rem;
+
+.menu .box-container .box:hover {
+    transform: scale(1.05);
 }
-.menu .box-container .box:hover .image img{
-    transform: scale(1.1);
+
+.menu .box-container .box .image {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
 }
-.menu .box-container .box .image .icons{
+
+.menu .box-container .box .image img {
+    width: 100%; /* Memastikan gambar memenuhi lebar container */
+    height: 25rem; /* Konsisten untuk semua card */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.menu .box-container .box:hover .image img {
+    transform: scale(1.1); /* Efek zoom saat hover */
+}
+
+.menu .box-container .box .image .icons {
     position: absolute;
-    bottom: -7rem; left: 0; right: 0;
+    bottom: -5rem;
+    left: 0;
+    right: 0;
     display: flex;
+    justify-content: space-between;
+    transition: bottom 0.3s ease;
 }
-.menu .box-container .box:hover .image .icons{
+
+.menu .box-container .box:hover .image .icons {
     bottom: 0;
 }
-.menu .box-container .box .image .icons a{
-    height: 5rem;
-    line-height: 5rem;
-    font-size: 2rem;
-    width: 50%;
-    background: var(--red);
+
+/* Styling untuk box container icons (Add to Cart dan Love) */
+.menu .box-container .box .image .icons {
+    position: absolute;
+    bottom: -4rem; /* Jarak default untuk ikon agar terlihat lebih dinamis saat hover */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+/* Animasi saat hover pada box, untuk memunculkan icons */
+.menu .box-container .box:hover .image .icons {
+    bottom: 0; /* Posisi naik saat hover */
+}
+
+/* Desain tombol untuk Add to Cart dan Love */
+.menu .box-container .box .image .icons a {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1.8rem;
+    text-align: center;
     color: #fff;
+    background: var(--red);
+    transition: background 0.3s ease;
 }
-.menu .box-container .box .image .icons .cart-btn{
-    border-left: .1rem solid #fff7;
-    border-right: .1rem solid #fff7;
-    width: 100%;
+
+/* Border antar tombol (Add to Cart dan Love) */
+.menu .box-container .box .image .icons a:not(:last-child) {
+    border-right: .1rem solid rgba(255, 255, 255, 0.3);
 }
-.menu .box-container .box .image .icons a:hover{
+
+/* Hover effect pada tombol */
+.menu .box-container .box .image .icons a:hover {
     background: #333;
 }
-.menu .box-container .box .content{
-    padding: 2rem;
+
+
+
+.menu .box-container .box .content {
+    padding: 1.5rem;
     text-align: center;
 }
-.menu .box-container .box .content h3{
-    font-size: 2.5rem;
+
+.menu .box-container .box .content h3 {
+    font-size: 1.8rem;
     color: #333;
+    margin-bottom: 0.5rem;
 }
-.menu .box-container .box .content .price{
-    font-size: 2.5rem;
+
+.menu .box-container .box .content .price {
+    font-size: 2rem;
     color: var(--red);
-    font-weight: bolder;
-    padding-top: 1rem;
+    font-weight: bold;
+    padding-top: 0.5rem;
 }
-.menu .box-container .box .content .span{
-    font-size: 1.5rem;
-    color: #999;
-    font-weight: lighter;
-    text-decoration: line-through;
-}
+
 
 .contact .row{
     display: flex;
@@ -417,3 +488,45 @@ header .fa-bars{
 
 
 }
+
+/* Mengatur ukuran tombol admin sesuai ukuran normal */
+.btn-admin {
+    padding: 0.5rem 1rem; /* Tambah padding untuk ukuran tombol yang lebih besar */
+    font-size: 1.125rem; /* Ganti ukuran font untuk tombol yang lebih besar */
+    border-radius: 0.25rem; /* Radius sudut tetap sama */
+}
+
+/* Optional: Jika Anda ingin mengubah warna atau gaya spesifik untuk tombol admin */
+.btn-admin.btn-success {
+    background-color: #28a745; /* Ganti dengan warna yang sesuai */
+}
+
+.btn-admin.btn-info {
+    background-color: #17a2b8; /* Ganti dengan warna yang sesuai */
+}
+
+.btn-admin.btn-warning {
+    background-color: #ffc107; /* Ganti dengan warna yang sesuai */
+}
+
+.btn-admin.btn-danger {
+    background-color: #dc3545; /* Ganti dengan warna yang sesuai */
+}
+.admin-container {
+    margin-top: 10px;
+    padding-top: 70px; /* Atur jarak sesuai tinggi navbar */
+}
+.admin-container h2 {
+    font-size: 2rem; /* Memperbesar ukuran judul */
+    font-weight: bold; /* Memberikan penekanan tebal pada judul */
+}
+
+.admin-container table th, 
+.admin-container table td {
+    font-size: 1.25rem; /* Memperbesar ukuran teks dalam tabel */
+}
+
+.admin-container .btn-admin {
+    font-size: 1rem; /* Ukuran font tombol tetap nyaman dan proporsional */
+}
+

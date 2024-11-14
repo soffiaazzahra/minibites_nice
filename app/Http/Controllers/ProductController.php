@@ -86,6 +86,13 @@ class ProductController extends Controller
         return redirect()->route('admin.product.index')->with('success', 'Produk berhasil diupdate!');
     }
 
+    public function show($id)
+    {
+        $product = Product::findOrFail($id); // Mengambil data produk berdasarkan ID atau gagal jika tidak ditemukan
+        return view('admin.product.show', compact('product')); // Mengarahkan ke halaman detail produk
+    }
+    
+
     public function destroy($id)
     {
         // Cari produk berdasarkan ID

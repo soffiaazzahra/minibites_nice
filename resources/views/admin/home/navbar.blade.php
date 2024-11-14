@@ -16,18 +16,31 @@
         header {
             background-color: #fff; /* Latar belakang header */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan header */
+            padding: 0.5rem 1.5rem;
         }
 
         .logo {
             font-size: 2rem; /* Ukuran font logo */
             color: #333; /* Warna logo */
             text-decoration: none; /* Tanpa garis bawah */
+            display: inline-block; /* Pastikan logo hanya mempengaruhi teks */
+            text-align: center; /* Rata tengah */
+            width: 100%; /* Pastikan elemen mengisi lebar */
         }
 
         .logo span {
             color: var(--red); /* Warna aksen */
         }
 
+        /* Untuk memastikan logo di tengah */
+        .navbar {
+            display: flex;
+            justify-content: center; /* Pusatkan semua elemen di dalam navbar */
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Styling untuk menu navbar */
         .navbar-nav .nav-link {
             font-size: 1.3rem; /* Ukuran font link navbar */
             padding: 0.5rem 1.5rem; /* Spasi pada link */
@@ -44,7 +57,7 @@
             font-weight: bold; /* Bold pada link aktif */
         }
 
-        /* Tombol dashboard */
+        /* Tombol Dashboard */
         .btn-dashboard {
             background-color: var(--red); /* Warna tombol */
             border-radius: 5rem; /* Sudut tombol melengkung */
@@ -58,6 +71,20 @@
             background-color: #333; /* Warna saat hover */
         }
 
+        /* Tombol Logout dengan Styling yang Sama */
+        .btn-logout {
+            background-color: var(--red); /* Warna tombol sama dengan tombol dashboard */
+            border-radius: 5rem; /* Sudut tombol melengkung sama */
+            font-size: 1.3rem; /* Ukuran font yang sama */
+            color: #fff; /* Warna teks tombol */
+            padding: 0.5rem 2rem; /* Spasi dalam tombol */
+            transition: background-color 0.3s ease-in-out; /* Transisi warna saat hover */
+        }
+
+        .btn-logout:hover {
+            background-color: #333; /* Warna hover yang sama */
+        }
+
         /* Icons */
         .icons a {
             color: #666; /* Warna ikon */
@@ -67,58 +94,62 @@
         .icons a:hover {
             color: var(--red); /* Warna saat hover */
         }
+
+        /* Toggler Styling untuk mobile */
+        #toggler {
+            display: none; /* Sembunyikan toggle pada ukuran besar */
+        }
+
+        @media (max-width: 768px) {
+            #toggler {
+                display: block; /* Tampilkan toggle di mobile */
+                font-size: 2rem; /* Ukuran tombol toggle lebih kecil */
+                background-color: transparent;
+                border: none;
+                color: #333;
+            }
+        }
     </style>
 </head>
 <body>
 
+<<<<<<< HEAD
 <header class="fixed-top">
     <div class="container d-flex justify-content-between align-items-center py-3">
         <!-- Logo -->
-        <a href="#" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
+        <a href="/admin/products" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
+=======
+    <header class="fixed-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            <input type="checkbox" name="" id="toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <label for="toggler" class="fa fa-bars"></label>
+            <a href="/admin" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
+>>>>>>> 2dc3e30 (buat navbar jadi responsif)
 
-        <!-- Navbar Links -->
-        <nav class="navbar navbar-expand-lg">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/admin">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#menu">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.product.index') }}">Admin</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <!-- Icons -->
-        <div class="icons d-flex align-items-center">
-            {{-- <a href="#" class="me-3">
-                <i class="fas fa-heart" style="font-size: 2rem;"></i>
-            </a>
-            <a href="#" class="me-3">
-                <i class="fas fa-shopping-cart" style="font-size: 2rem;"></i>
-            </a> --}}
-            <form action="{{ route('auth.logout') }}" method="post">
-                @csrf
-                <button type="submit" class="btn btn-primary" style="font-size: 2rem;">Logout</button>
-            </form>
+            <!-- Navbar Links -->
+            <nav class="navbar navbar-expand-lg">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.product.index') }}">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.contact.index') }}">Contact</a>
+                        </li>
+                        <!-- Tombol Logout dalam navbar dengan kelas btn-logout -->
+                        <li class="nav-item">
+                            <form action="{{ route('auth.logout') }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-logout">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-    </div>
-</header>
+    </header>
 
-<!-- Sertakan JS Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Sertakan JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

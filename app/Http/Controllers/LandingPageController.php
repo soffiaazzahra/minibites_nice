@@ -12,8 +12,28 @@ class LandingPageController extends Controller
         // Sesuaikan view ini dengan view landing page kamu
         //Ambil semua produk dari database
         $products = Product::all();
-    
+
         // Kirimkan data produk ke view landing page
         return view('landing.page', compact('products'));
+    }
+
+    public function menu()
+    {
+        // Sesuaikan view ini dengan view landing page kamu
+        //Ambil semua produk dari database
+        $products = Product::all();
+
+        // Kirimkan data produk ke view landing page
+        return view('landing.menu', compact('products'));
+    }
+
+    public function about()
+    {
+        // Sesuaikan view ini dengan view landing page kamu
+        //Ambil semua produk dari database
+        $products = Product::all();
+
+        // Kirimkan data produk ke view landing page
+        return view('landing.about');
     }
 }

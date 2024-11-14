@@ -14,7 +14,7 @@ class AdminController extends Controller
         if(Auth::check())
         {
             $products = Product::all();
-            return view('admin.page', compact('products'));
+            return view('admin.product.index', compact('products'));
         }
         return redirect()->route('auth.login')->withErrors([
             'notif'     => 'login dulu sebelum akses Dashboard',

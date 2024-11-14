@@ -1,7 +1,7 @@
 @extends('admin.page')
 
 @section('content')
-<div class="container mt-5">
+<div class="container admin-container" style="padding-top: 5px;">
     <h2 class="mb-4">Edit Produk</h2>
 
     <form action="{{ route('admin.product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
@@ -28,7 +28,29 @@
             <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3">{{ $product->deskripsi }}</textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Update Produk</button>
+        <button type="submit" class="admin-btn btn-primary btn-lg" style="background-color: #CD3449; color: white; border: none;">Update Produk</button>
     </form>
 </div>
+<style>
+    .admin-btn {
+        background-color: #CD3449;
+        color: white;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        font-size: 1.1rem; /* Font ukuran sedang */
+        border-radius: 0.25rem;
+    }
+    .admin-btn:hover {
+        background-color: #b12c3f;
+    }
+
+    .form-label {
+        font-size: 1.2rem; /* Memperbesar label form */
+    }
+
+    input.form-control, 
+    textarea.form-control {
+        font-size: 1.1rem; /* Memperbesar teks dalam input dan textarea */
+    }
+</style>
 @endsection

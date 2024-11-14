@@ -9,4 +9,9 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable = ['nama', 'harga', 'deskripsi', 'image'];
+
+    public function wishlists()
+    {
+    return $this->hasMany(Wishlist::class);
+    }
 }
