@@ -91,7 +91,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id); // Mengambil data produk berdasarkan ID atau gagal jika tidak ditemukan
         return view('admin.product.show', compact('product')); // Mengarahkan ke halaman detail produk
     }
-    
+
 
     public function destroy($id)
     {
