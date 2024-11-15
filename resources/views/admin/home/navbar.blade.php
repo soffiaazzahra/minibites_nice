@@ -20,12 +20,12 @@
         }
 
         .logo {
-            font-size: 2rem; /* Ukuran font logo */
-            color: #333; /* Warna logo */
-            text-decoration: none; /* Tanpa garis bawah */
-            display: inline-block; /* Pastikan logo hanya mempengaruhi teks */
-            text-align: center; /* Rata tengah */
-            width: 100%; /* Pastikan elemen mengisi lebar */
+        font-size: 2rem;
+        color: #333;
+        text-decoration: none;
+        display: inline-block;
+        text-align: left;
+        margin-right: 2rem; /* Tambahkan margin kanan pada logo */
         }
 
         .logo span {
@@ -42,12 +42,11 @@
 
         /* Styling untuk menu navbar */
         .navbar-nav .nav-link {
-            font-size: 1.3rem; /* Ukuran font link navbar */
-            padding: 0.5rem 1.5rem; /* Spasi pada link */
-            color: #666; /* Warna default link */
-            transition: color 0.3s ease-in-out; /* Transisi halus */
+        font-size: 1.3rem;
+        padding: 0.5rem 1.5rem; /* Spasi pada link */
+        color: #666; /* Warna default link */
+        transition: color 0.3s ease-in-out; /* Transisi halus */
         }
-
         .navbar-nav .nav-link:hover {
             color: var(--red); /* Warna merah saat hover */
         }
@@ -113,30 +112,25 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-<header class="fixed-top">
-    <div class="container d-flex justify-content-between align-items-center py-3">
-        <!-- Logo -->
-        <a href="/admin/products" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
-=======
     <header class="fixed-top">
         <div class="container d-flex justify-content-between align-items-center">
             <input type="checkbox" name="" id="toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <label for="toggler" class="fa fa-bars"></label>
-            <a href="/admin" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
->>>>>>> 2dc3e30 (buat navbar jadi responsif)
-
+            <a href="/admin" class="logo text-dark fw-bold">minibites<span class="text-danger">.</span></a>
+        
             <!-- Navbar Links -->
             <nav class="navbar navbar-expand-lg">
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav mx-auto"> <!-- Gunakan mx-auto untuk menyejajarkan navbar links di tengah -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.product.index') }}">Admin</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.contact.index') }}">Contact</a>
                         </li>
-                        <!-- Tombol Logout dalam navbar dengan kelas btn-logout -->
+                    </ul>
+                    <!-- Tombol Logout tetap di sisi kanan -->
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <form action="{{ route('auth.logout') }}" method="post">
                                 @csrf
@@ -148,6 +142,11 @@
             </nav>
         </div>
     </header>
+    
+    
+    
+
+    
 
     <!-- Sertakan JS Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

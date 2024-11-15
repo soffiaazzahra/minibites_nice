@@ -2,8 +2,10 @@
 
 @section('content')
 <body>
-    <div class="container admin-container" style="padding-top: 5px;">
+    <div class="container admin-container" style="margin-top: 100px;"> <!-- Menggunakan margin-top agar konten lebih jauh turun -->
+        
         <h2 class="mb-4">User Contacts</h2>
+        
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -30,4 +32,4 @@
         </table>
     </div>
 </body>
-</html>
+@endsection

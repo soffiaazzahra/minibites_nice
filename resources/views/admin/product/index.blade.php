@@ -1,9 +1,11 @@
 @extends('admin.page')
 
 @section('content')
-<div class="container admin-container" style="padding-top: 5px;">  <!-- Menggunakan Bootstrap container di sini -->
 
-    <h2 class="mb-4">Daftar Produk</h2>
+<div class="container admin-container" style="padding-top: 400px;"> <!-- Tingkatkan padding-top sesuai kebutuhan -->
+    <!-- Konten lainnya -->
+    
+    <h2 class="mb-4" style="margin-top: 50px;">Daftar Produk</h2> <!-- Tambahkan margin-top jika perlu -->
 
     <!-- Tombol Create di atas tabel -->
     <div class="mb-3">

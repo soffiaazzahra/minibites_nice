@@ -18,11 +18,7 @@
             <input type="checkbox" name="" id="toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <label for="toggler" class="fa fa-bars"></label>
             <!-- Logo -->
-<<<<<<< HEAD
-            <a href="/user" class="logo text-dark fw-bold">pastry<span class="text-danger">.</span></a>
-=======
             <a href="#" class="logo text-dark fw-bold">MINIBITES<span class="text-danger">.</span></a>
->>>>>>> 2dc3e30 (buat navbar jadi responsif)
 
             <!-- Navbar Links -->
             <nav class="navbar navbar-expand-lg">

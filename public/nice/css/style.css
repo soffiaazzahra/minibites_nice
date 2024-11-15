@@ -514,7 +514,7 @@ header .fa-bars{
 }
 .admin-container {
     margin-top: 10px;
-    padding-top: 70px; /* Atur jarak sesuai tinggi navbar */
+    padding-top: 300px; /* Atur jarak sesuai tinggi navbar */
 }
 .admin-container h2 {
     font-size: 2rem; /* Memperbesar ukuran judul */
