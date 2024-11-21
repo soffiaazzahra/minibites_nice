@@ -23,7 +23,7 @@ class AuthController extends Controller
             if (auth()->user()->role_id == 1)
             {
                 $products = Product::all();
-                return redirect()->route('admin.page');
+                return redirect()->route('admin.product.index');
             } else {
                 $products = Product::all();
                 return redirect()->route('user.page');

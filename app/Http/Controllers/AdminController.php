@@ -17,7 +17,7 @@ class AdminController extends Controller
             return view('admin.product.index', compact('products'));
         }
         return redirect()->route('auth.login')->withErrors([
-            'notif'     => 'login dulu sebelum akses Dashboard',
+            'notif'     => 'login dulu sebelum akses Dashboard'
         ]);
     }
 }

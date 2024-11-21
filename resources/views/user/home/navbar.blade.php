@@ -18,22 +18,22 @@
             <input type="checkbox" name="" id="toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <label for="toggler" class="fa fa-bars"></label>
             <!-- Logo -->
-            <a href="/user" class="logo text-dark fw-bold">MINIBITES<span class="text-danger">.</span></a>
+            <a href="{{ route('user.page') }}" class="logo text-dark fw-bold">MINIBITES<span class="text-danger">.</span></a>
             <!-- Navbar Links -->
             <nav class="navbar navbar-expand-lg">
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/user">Home</a>
+                            <a class="nav-link" href="{{ route('user.page') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/user/menu">Menu</a>
+                            <a class="nav-link" href="{{ route('user.menu') }}">Menu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/user/about">About Us</a>
+                            <a class="nav-link" href="{{ route('user.about') }}">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/user/contact">Contact</a>
+                            <a class="nav-link" href="{{ route('user.contact') }}">Contact</a>
                         </li>
                         <!-- Tombol Logout untuk layar kecil -->
                         <li class="nav-item d-lg-none">

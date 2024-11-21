@@ -26,11 +26,8 @@ Route::get('/landing', function () {
 Route::middleware(['guest'])->group(function () {
     Route::get('/', [LandingPageController::class, 'index'])->name('landing.page');
 
-    Route::prefix('landing')->group(function(){
-        Route::get('/menu', [LandingPageController::class, 'menu'])->name('landing.menu');
-        Route::get('/about', [LandingPageController::class, 'about'])->name('landing.about');
-        Route::get('/', [LandingPageController::class, 'index'])->name('landing.page');
-    });
+    Route::get('/menu', [LandingPageController::class, 'menu'])->name('landing.menu');
+    Route::get('/about', [LandingPageController::class, 'about'])->name('landing.about');
 
     Route::controller(AuthController::class)->group(function () {
         Route::get('/login', 'login')->name('auth.login');
@@ -51,9 +48,11 @@ Route::middleware(['can:isUser'])->group(function () {
     Route::prefix('user')->group(function () {
         // Route untuk navbar home pada halaman cart
         Route::get('/', [UserController::class, 'user'])->name('user.page');
+
         // Route untuk Cart
         Route::post('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart.add');
         Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
+
         // Route untuk menghapus produk dari keranjang
         Route::get('/cart/remove/{id}', [CartController::class, 'destroy'])->name('cart.remove');
 
@@ -71,17 +70,17 @@ Route::middleware(['can:isUser'])->group(function () {
 });
 
 Route::middleware(['can:isAdmin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'admin'])->name('admin.page');
+    Route::prefix('products')->group(function () {
+        Route::get('/', [ProductController::class, 'index'])->name('admin.product.index');
+        Route::get('/create', [ProductController::class, 'create'])->name('admin.product.create');
+        Route::post('/', [ProductController::class, 'store'])->name('admin.product.store');
+        Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('admin.product.edit');
+        Route::put('/{product}', [ProductController::class, 'update'])->name('admin.product.update');
+        Route::delete('/{product}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
+        Route::get('/{product}', [ProductController::class, 'show'])->name('admin.product.show');
+    });
 
-    Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.product.index');
-    Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin.product.create');
-    Route::post('/admin/products', [ProductController::class, 'store'])->name('admin.product.store');
-    Route::delete('/admin/products/{product}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
-    Route::get('/admin/products/{product}/edit', [ProductController::class, 'edit'])->name('admin.product.edit');
-    Route::put('/admin/products/{product}', [ProductController::class, 'update'])->name('admin.product.update');
-    Route::get('/admin/products/{product}', [ProductController::class, 'show'])->name('admin.product.show');
-
-    Route::get('/admin/contact', [ContactController::class, 'index'])->name('admin.contact.index');
+    Route::get('/contact', [ContactController::class, 'index'])->name('admin.contact.index');
 });
 
 

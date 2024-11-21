@@ -116,7 +116,7 @@
         <div class="container d-flex justify-content-between align-items-center">
             <input type="checkbox" name="" id="toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <label for="toggler" class="fa fa-bars"></label>
-            <a href="/admin" class="logo text-dark fw-bold">minibites<span class="text-danger">.</span></a>
+            <a href="{{ route('admin.product.index') }}" class="logo text-dark fw-bold">minibites<span class="text-danger">.</span></a>
             <!-- Navbar Links -->
             <nav class="navbar navbar-expand-lg">
                 <div class="collapse navbar-collapse" id="navbarNav">

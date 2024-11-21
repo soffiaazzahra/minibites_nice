@@ -18,7 +18,7 @@
             <input type="checkbox" name="" id="toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <label for="toggler" class="fa fa-bars"></label>
             <!-- Logo -->
-            <a href="/landing" class="logo text-dark fw-bold">MINIBITES<span class="text-danger">.</span></a>
+            <a href="{{ route('landing.page') }}" class="logo text-dark fw-bold">MINIBITES<span class="text-danger">.</span></a>
 
             <!-- Navbar Links -->
             <nav class="navbar navbar-expand-lg">
@@ -28,10 +28,10 @@
                             <a class="nav-link" href="{{ route('landing.page') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/landing/menu">Menu</a>
+                            <a class="nav-link" href="{{ route('landing.menu') }}">Menu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/landing/about">About Us</a>
+                            <a class="nav-link" href="{{ route('landing.about') }}">About Us</a>
                         </li>
                         <!-- Tombol Login hanya muncul di layar kecil -->
                         <li class="nav-item d-lg-none">
@@ -52,7 +52,7 @@
 <a class="me-3 position-relative disabled-icon" style="pointer-events: none;">
     <i class="fas fa-shopping-cart" style="font-size: 1.5rem;"></i>
 </a>
-    
+
                 <!-- Tombol Login untuk layar besar -->
                 <a href="{{ route('auth.login') }}" class="d-none d-lg-block">
                     <i class="btn btn-primary" style="font-size: 2rem;">Login</i>
